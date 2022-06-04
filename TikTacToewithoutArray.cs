@@ -10,8 +10,8 @@ namespace practice
             String player1 = Console.ReadLine();
             Console.WriteLine("Player 2 enter your initial: ");
             String player2 = Console.ReadLine();
-            //game(player1,player2);
-            gamewitharray();
+            game(player1,player2);
+            //gamewitharray();
          
             
             void game(string player1, string player2)
