@@ -8,9 +8,11 @@ namespace practice
         {
             Console.WriteLine("Player 1 enter your initial: ");
             String player1 = Console.ReadLine();
-            Console.WriteLine("Player 2 enter your initial: ");
+            Console.WriteLine("Player 2 enter your initial: "); // What if P1 and P2 have the same initial ?
             String player2 = Console.ReadLine();
             game(player1,player2);
+            
+            // Delete dead code
             //gamewitharray();
          
             
@@ -28,18 +30,19 @@ namespace practice
                 int p = 1;
                 int box = 0;
                 int count = 1;
-                int ifrun = 1;
+                int ifrun = 1; // Do not use a int to validate user input, use a bool. Default value must be false.
                 while(count < 10)
                 {
                     Console.WriteLine($"{TL}|{TM}|{TR}");
                     Console.WriteLine($"{ML}|{MM}|{MR}");
                     Console.WriteLine($"{BL}|{BM}|{BR}");
                     
+                    // Can you refactor this to have only one call ? Use a function
                     if (p == 1)
                     {
-                        Console.WriteLine(" P1 Select your box: MM, ML, MR, TM, TL, TR, BM, BL, BR");
+                        Console.WriteLine(" P1 Select your box: MM, ML, MR, TM, TL, TR, BM, BL, BR"); 
                         box = 1;
-                        ifrun = 1;
+                        ifrun = 1; // If ifrun is assigned to the same value in oth case, why put it in the if ?
                     }
                     else
                     {
@@ -50,8 +53,12 @@ namespace practice
 
 
                     string inp = Console.ReadLine();
+                    // Use switch case to replace "if inp == "
                     if (inp == "MM")
                     {
+                        // Implement the function "IsLegalMove and base on the input validate if the use can play here
+                        // Can be refactor to avoid testing for player1 and 2
+                        // Must be refactor to avoid doing the same test for each input
                         if (MM == "*")
                         {
                             count++;
@@ -214,6 +221,7 @@ namespace practice
                         }
                     }
 
+                    // Why display this ? 
                     if (count > 9)
                     {
                         Console.WriteLine($"{TL}|{TM}|{TR}");
@@ -221,6 +229,8 @@ namespace practice
                         Console.WriteLine($"{BL}|{BM}|{BR}");
                     }
 
+                    // Create a function that will test for each case if the other case of the row / col / diagonal have the same value
+                    // Regardless the player
                     if (MM == player1 && ML == player1 && MR == player1)
                     {
                         Console.WriteLine($"YAY!!! YOU WON, Player 1: {player1}");
@@ -308,6 +318,7 @@ namespace practice
                 }
             }
 
+            // remove dead code
             void gamewitharray()
             {
                 string[,] array2D = new string[3, 3];
